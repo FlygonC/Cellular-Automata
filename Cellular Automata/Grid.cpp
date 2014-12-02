@@ -72,7 +72,7 @@ struct Grid {
 				}
 			}
 			if (Cells[t.x + 1][t.y].state == target && queued[t.x + 1][t.y] == false) {
-				if (t.x + 1 <= 59) {
+				if (t.x + 1 <= 60) {
 					Q.Add(Cells[t.x + 1][t.y]);
 					queued[t.x + 1][t.y] = true;
 				}
@@ -84,7 +84,7 @@ struct Grid {
 				}
 			}
 			if (Cells[t.x][t.y + 1].state == target && queued[t.x][t.y + 1] == false) {
-				if (t.y + 1 <= 59) {
+				if (t.y + 1 <= 60) {
 					Q.Add(Cells[t.x][t.y + 1]);
 					queued[t.x][t.y + 1] = true;
 				}

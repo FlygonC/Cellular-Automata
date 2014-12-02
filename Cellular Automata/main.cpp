@@ -38,10 +38,10 @@ Grid nextGeneration(Grid &input, int generations) {
 int main() {
 	int seed = time(NULL);
 	//srand(time(NULL));
-	srand(5);
+	srand(seed);
 
-	int density = 50;
-	int genSkip = 3;
+	int density = 45;
+	int genSkip = 1;
 
 	int Generation = 1;
 	Grid World;
@@ -57,7 +57,7 @@ int main() {
 		}
 	}
 
-	cout << "Generation: " << Generation << "  " << seed << endl;
+	cout << "Generation: " << Generation << "  Seed: " << seed << endl;
 	cout << World;
 	system("pause");
 
@@ -71,9 +71,17 @@ int main() {
 		int cavernsFound = 0;
 		for (int i = 0; i <= 59; i++) {
 			for (int j = 0; j <= 59; j++) {
-				if (World.floodFill(i, j, 0, 2)) {			
+				if (World.floodFill(i, j, 0, 3)) {			
 					cavernsFound++;
 				}
+				//cout << World.Cells[i][j].state;
+			}
+			//cout << endl;
+		}
+
+		for (int i = 0; i <= 59; i++) {
+			for (int j = 0; j <= 59; j++) {
+				World.floodFill(i, j, 3, 0);
 				//cout << World.Cells[i][j].state;
 			}
 			//cout << endl;
