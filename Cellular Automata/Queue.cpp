@@ -37,7 +37,7 @@ public:
 		}
 		//new node is the new back of line
 		Back = n;
-		//if front of line is empty, back of line is also front
+		//if front of line is empty, front of line is also back
 		if (Front == NULL) {
 			Front = Back;
 		}

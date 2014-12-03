@@ -30,7 +30,7 @@ Grid nextGeneration(Grid &input, int generations) {
 				}*/
 			}
 		}
-		input = temp;
+		//input = temp;
 	}
 	return temp;
 }
