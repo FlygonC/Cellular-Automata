@@ -60,31 +60,31 @@ struct Grid {
 			}
 		}
 		Q.Add(Cells[x][y]);
-		while (Q.Size >= 1) {
-			Cell t = Q.getFront()->data;
+		while (Q.getSize() >= 1) {
+			Cell t = Q.getFront();
 			Q.Pop();
 			Cells[t.x][t.y].state = replace;
 			queued[t.x][t.y] = true;
-			if (Cells[t.x - 1][t.y].state == target && queued[t.x - 1][t.y] == false) {
-				if (t.x - 1 >= 0) {
+			if (t.x - 1 >= 0) {
+				if (Cells[t.x - 1][t.y].state == target && queued[t.x - 1][t.y] == false) {
 					Q.Add(Cells[t.x - 1][t.y]);
 					queued[t.x - 1][t.y] = true;
 				}
 			}
-			if (Cells[t.x + 1][t.y].state == target && queued[t.x + 1][t.y] == false) {
-				if (t.x + 1 <= 60) {
+			if (t.x + 1 <= 59) {
+				if (Cells[t.x + 1][t.y].state == target && queued[t.x + 1][t.y] == false) {
 					Q.Add(Cells[t.x + 1][t.y]);
 					queued[t.x + 1][t.y] = true;
 				}
 			}
-			if (Cells[t.x][t.y - 1].state == target && queued[t.x][t.y - 1] == false) {
-				if (t.y - 1 >= 0) {
+			if (t.y - 1 >= 0) {
+				if (Cells[t.x][t.y - 1].state == target && queued[t.x][t.y - 1] == false) {	
 					Q.Add(Cells[t.x][t.y - 1]);
 					queued[t.x][t.y - 1] = true;
 				}
 			}
-			if (Cells[t.x][t.y + 1].state == target && queued[t.x][t.y + 1] == false) {
-				if (t.y + 1 <= 60) {
+			if (t.y + 1 <= 59) {
+				if (Cells[t.x][t.y + 1].state == target && queued[t.x][t.y + 1] == false) {			
 					Q.Add(Cells[t.x][t.y + 1]);
 					queued[t.x][t.y + 1] = true;
 				}
